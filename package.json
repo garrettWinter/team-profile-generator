@@ -1,4 +1,11 @@
 {
+  "name": "teamprofilegenerator",
+  "version": "1.0.0",
+  "description": "Generats HTML for a org chart for a team based on user inputs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "inquirer": "^8.2.4",
     "jest": "^29.3.1"
