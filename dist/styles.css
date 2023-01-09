@@ -1,5 +1,4 @@
-function generateCSS () {
-    return `* {
+* {
         background-color: transparent;
         margin: 0px;
     }
@@ -68,9 +67,4 @@ function generateCSS () {
         left: 0;
         bottom: 0;
         width: 100%;
-    }`
-};
-
-module.exports = generateCSS;
-
-generateCSS ();
+    }
