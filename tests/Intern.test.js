@@ -23,7 +23,7 @@ describe('New Intern Creation Validation', () => {
         let testId = 2;
         let testEmail = "email@email.com";
         let testRole = "Intern";
-        let testSchool = 'garrettWinter';
+        let testSchool = 'U of M';
 
         //Assert - make sure we got what we expected
         expect(test.name).toBe(testName);
@@ -43,7 +43,7 @@ describe('New Intern Creation Validation', () => {
             let checkId = 2;
             let checkEmail = "email@email.com";
             let checkRole = "Intern";
-            let checkSchool = 'garrettWinter';
+            let checkSchool = 'U of M';
 
             //Assert - make sure we got what we expected
             expect(test.getName()).toBe(checkName);
