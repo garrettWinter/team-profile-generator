@@ -3,7 +3,6 @@ const NewIntern = require('../lib/Intern.js');
 describe('Test', () => {
     describe('Test', () => {
     it('Testing to make sure we can pass a test.', () => {
-        //TESTING to make sure it works
         // Arrange - Define the variables we will be using
         let one = 1;
 
