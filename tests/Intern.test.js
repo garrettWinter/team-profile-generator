@@ -1,17 +1,57 @@
-const NewIntern = require('../lib/Intern.js');
+const Intern = require('../lib/Intern.js');
 
 describe('Test', () => {
-    describe('Test', () => {
-    it('Testing to make sure we can pass a test.', () => {
-        // Arrange - Define the variables we will be using
-        let one = 1;
+    describe('New Intern Creation', () => {
+        it('Testing to make sure the object is was created by the Intern class', () => {
+            // Arrange - Define the variables we will be using
+            let test = new Intern()
+    
+            // Act - run the code under test / do thing we're testing
+            let testClass = 'Intern';
+    
+            //Assert - make sure we got what we expected
+            expect(test.constructor.name).toBe(testClass);
+        })});
 
-        // Act - runt he code under test / do thing we're testing
-        let testMe = one === 1;
+describe('New Intern Creation Validation', () => {
+    it('Testing to make sure all the Intern attributes are being created properly', () => {
+        // Arrange - Define the variables we will be using
+        let test = new Intern("Garrett", 2, 'email@email.com', 'U of M')
+
+        // Act - run the code under test / do thing we're testing
+        let testName = "Garrett";
+        let testId = 2;
+        let testEmail = "email@email.com";
+        let testRole = "Intern";
+        let testSchool = 'garrettWinter';
 
         //Assert - make sure we got what we expected
-        expect(testMe).toBe(true);
+        expect(test.name).toBe(testName);
+        expect(test.id).toBe(testId);
+        expect(test.email).toBe(testEmail);
+        expect(test.role).toBe(testRole);
+        expect(test.school).toBe(testSchool);
     })});
+
+    describe('New Intern Creation Validation', () => {
+        it('Testing to make sure all the Intern get methods are being working properly', () => {
+            // Arrange - Define the variables we will be using
+            let test = new Intern("Garrett", 2, 'email@email.com', 'U of M')
+    
+            // Act - run the code under test / do thing we're testing
+            let checkName = "Garrett";
+            let checkId = 2;
+            let checkEmail = "email@email.com";
+            let checkRole = "Intern";
+            let checkSchool = 'garrettWinter';
+
+            //Assert - make sure we got what we expected
+            expect(test.getName()).toBe(checkName);
+            expect(test.getId()).toBe(checkId);
+            expect(test.getEmail()).toBe(checkEmail);
+            expect(test.getRole()).toBe(checkRole);
+            expect(test.getSchool()).toBe(checkSchool);
+        })});
 
 
 });
