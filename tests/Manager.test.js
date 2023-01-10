@@ -50,7 +50,7 @@ describe('New Manager Creation Validation', () => {
             expect(test.getId()).toBe(checkId);
             expect(test.getEmail()).toBe(checkEmail);
             expect(test.getRole()).toBe(checkRole);
-            expect(test.officeNumber()).toBe(checkOfficeNumber);
+            expect(test.getOfficeNumber()).toBe(checkOfficeNumber);
         })});
 
 
