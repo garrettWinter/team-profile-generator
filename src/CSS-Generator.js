@@ -72,5 +72,3 @@ function generateCSS () {
 };
 
 module.exports = generateCSS;
-
-generateCSS ();
