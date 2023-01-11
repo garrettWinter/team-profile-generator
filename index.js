@@ -3,7 +3,6 @@ const generateCSS = require('./src/CSS-Generator');
 const generateHTML = require('./src/HTML-Generator');
 const startingPrompts = require('./lib/Questionnair');
 
-
 function writeCSSFile() {
     fs.writeFile('./dist/styles.css',
         generateCSS()
@@ -27,3 +26,5 @@ function startup() {
 }
 
 startup();
+
+
