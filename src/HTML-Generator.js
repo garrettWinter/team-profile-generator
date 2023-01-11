@@ -1,8 +1,11 @@
+//Setting Connection  Variables
 const Manager = require('../lib/Manager.js');
 const Engineer = require('../lib/Engineer.js');
 const Intern = require('../lib/Intern.js');
-const generateCSS = require('./CSS-Generator.js')
+const writeCSSFile = require('./CSS-Generator')
 const fs = require('fs');
+
+//Setting Global Varaibles
 let managerHTML = '';
 let engineerHTML = '';
 let internHTML = '';
@@ -10,11 +13,8 @@ let manager = '';
 let engineer = '';
 let intern = '';
 
-
+//This function will create all 3 employees (Manager, Enginerr, Intern)
 function cardGenerator(collectedData) {
-    console.log("cardGenerator is checking collectedData");
-    console.log(collectedData.employeeEngineerData[0]);
-
     //Manager Card Creation
     manager = new Manager(
         collectedData.employeeManagerData.startingManagerName,
@@ -22,7 +22,6 @@ function cardGenerator(collectedData) {
         collectedData.employeeManagerData.startingManagerEmail,
         collectedData.employeeManagerData.startingManagerOfficeNumber
     );
-    // console.log(manager);
     managerHTML = `
                 <div class="empCard">
                     <div class="name-role">
@@ -36,6 +35,7 @@ function cardGenerator(collectedData) {
                         </div>
                     </div>
                 </div>`
+
     // Engineer Card(s) Creation
     for (let i = 0; i < collectedData.employeeEngineerData.length; i++) {
         engineer = new Engineer(
@@ -58,6 +58,7 @@ function cardGenerator(collectedData) {
                 </div>`);
 
     };
+
     // Intern Card(s) Creation
     for (let i = 0; i < collectedData.employeeInternData.length; i++) {
         intern = new Intern(
@@ -82,15 +83,17 @@ function cardGenerator(collectedData) {
     };
     writeHTMLFile(collectedData);
 };
-
+//This function will trigger the generation of the HTML file, and create this in the dist folder.
 function writeHTMLFile(collectedData) {
     fs.writeFile('./dist/index.html',
         generateHTML(collectedData)
         , (err) =>
             err ? console.error(err) : console.log('HTML File has been created!')
     );
-}
+    writeCSSFile();
+};
 
+//This generates the static HTML along with the Dynamic HTML based on the user inputs.
 function generateHTML(collectedData) {
     return `<!DOCTYPE html>
     <html lang="en">
@@ -113,7 +116,6 @@ function generateHTML(collectedData) {
     </body>
     
     </html>`
-    generateCSS();
-};
+    };
 
 module.exports = cardGenerator, generateHTML;

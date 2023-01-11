@@ -1,3 +1,6 @@
+const fs = require('fs');
+
+//This generates the static CSS required for the org chart to look proper.
 function generateCSS () {
     return `* {
         background-color: transparent;
@@ -71,4 +74,12 @@ function generateCSS () {
     }`
 };
 
-module.exports = generateCSS;
+function writeCSSFile() {
+    fs.writeFile('./dist/styles.css',
+        generateCSS()
+        , (err) =>
+            err ? console.error(err) : console.log('CSS File has been created!')
+    );
+}
+
+module.exports = writeCSSFile;
