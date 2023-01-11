@@ -5,7 +5,7 @@ const Intern = require('../lib/Intern.js');
 const writeCSSFile = require('./CSS-Generator')
 const fs = require('fs');
 
-//Setting Global Varaibles
+//Setting Global Variables
 let managerHTML = '';
 let engineerHTML = '';
 let internHTML = '';
@@ -13,7 +13,7 @@ let manager = '';
 let engineer = '';
 let intern = '';
 
-//This function will create all 3 employees (Manager, Enginerr, Intern)
+//This function will create all 3 employees (Manager, Engineer, Intern)
 function cardGenerator(collectedData) {
     //Manager Card Creation
     manager = new Manager(
@@ -83,7 +83,7 @@ function cardGenerator(collectedData) {
     };
     writeHTMLFile(collectedData);
 };
-//This function will trigger the generation of the HTML file, and create this in the dist folder.
+//This function will trigger the generation of the HTML file and create this in the dist folder.
 function writeHTMLFile(collectedData) {
     fs.writeFile('./dist/index.html',
         generateHTML(collectedData)
