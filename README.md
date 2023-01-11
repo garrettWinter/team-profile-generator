@@ -48,7 +48,7 @@ Below a screenshot(s) of the application:
   - ![Screenshot of the tests being run](./assets/images/Tests-Screenshot.png)
   
 Below a Video Demo of the application:
-  - A demo of the video can be found at ().
+  - A demo of the video can be found at (https://garrettwinter.github.io/team-profile-generator/assets/media/Team-Profile-Generator.webm).
 
 ## License
 
