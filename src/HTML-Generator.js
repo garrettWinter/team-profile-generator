@@ -52,7 +52,7 @@ function cardGenerator(collectedData) {
                         <div class="empCardContent">
                             <div class="empDetails">ID: ${engineer.id}</div>
                             <div class="empDetails">Email: <br> <a href="mailto:${engineer.email}">${engineer.email}</a></div>
-                            <div class = "empDetails">GitHub: <a href="https://github.com/${engineer.gitHub}">${engineer.gitHub}</a></div>
+                            <div class = "empDetails">GitHub: <a href="https://github.com/${engineer.gitHub}" target="_blank">${engineer.gitHub}</a></div>
                         </div>
                     </div>
                 </div>`);
