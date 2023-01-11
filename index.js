@@ -11,14 +11,6 @@ function writeCSSFile() {
     );
 }
 
-function writeHTMLFile() {
-    fs.writeFile('./dist/index.html',
-        generateHTML()
-        , (err) =>
-            err ? console.error(err) : console.log('HTML File has been created!')
-    );
-}
-
 function startup() {
     startingPrompts();
     // writeCSSFile();
