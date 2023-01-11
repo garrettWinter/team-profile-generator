@@ -1,6 +1,7 @@
 const Manager = require('../lib/Manager.js');
 const Engineer = require('../lib/Engineer.js');
 const Intern = require('../lib/Intern.js');
+const generateCSS = require('./CSS-Generator.js')
 const fs = require('fs');
 let managerHTML = '';
 let engineerHTML = '';
@@ -35,21 +36,7 @@ function cardGenerator(collectedData) {
                         </div>
                     </div>
                 </div>`
-    // Engineer Card Creation
-
-
-    // <div class="empCard">
-    //     <div class="name-role">
-    //         Garrett Winter <br> 👓 Engineer
-    //     </div>
-    //     <div class="empCardBody">
-    //         <div class="empCardContent">
-    //             <div class = "empDetails">ID: 2</div>
-    //             <div class = "empDetails">Email: <br> <a href="mailto:Garrett_Winter@hotmail.com">Garrett_Winter@hotmail.com</a></div>
-    //             <div class = "empDetails">GitHub: <a href="https://github.com/garrettWinter">garrettWinter</a></div>
-    //         </div>
-    //     </div>
-    // </div>
+    // Engineer Card(s) Creation
     for (let i = 0; i < collectedData.employeeEngineerData.length; i++) {
         engineer = new Engineer(
             collectedData.employeeEngineerData[i].engineerName,
@@ -66,6 +53,28 @@ function cardGenerator(collectedData) {
                             <div class="empDetails">ID: ${engineer.id}</div>
                             <div class="empDetails">Email: <br> <a href="mailto:${engineer.email}">${engineer.email}</a></div>
                             <div class = "empDetails">GitHub: <a href="https://github.com/${engineer.gitHub}">${engineer.gitHub}</a></div>
+                        </div>
+                    </div>
+                </div>`);
+
+    };
+    // Intern Card(s) Creation
+    for (let i = 0; i < collectedData.employeeInternData.length; i++) {
+        intern = new Intern(
+            collectedData.employeeInternData[i].internName,
+            collectedData.employeeInternData[i].internId,
+            collectedData.employeeInternData[i].internEmail,
+            collectedData.employeeInternData[i].internSchool
+        );
+        internHTML = internHTML.concat(`\n             <div class="empCard">
+                    <div class="name-role">
+                        ${intern.name} <br> 🎓 ${intern.role} 
+                    </div>
+                    <div class="empCardBody">
+                        <div class="empCardContent">
+                            <div class="empDetails">ID: ${intern.id}</div>
+                            <div class="empDetails">Email: <br> <a href="mailto:${intern.email}">${intern.email}</a></div>
+                            <div class = "empDetails">School: ${intern.school}</div>
                         </div>
                     </div>
                 </div>`);
@@ -97,43 +106,14 @@ function generateHTML(collectedData) {
     <body>
         <header>${collectedData.employeeManagerData.startingTeamName}</header>
         <main>
-            <div id="orgBox">${managerHTML}${engineerHTML}
-    
-    
-                <div class="empCard">
-                    <div class="name-role">
-                        Garrett Winter <br> 🎓 Intern
-                        <!-- ☕ 🎓 👓 -->
-                    </div>
-                    <div class="empCardBody">
-                        <div class="empCardContent">
-                            <div class = "empDetails">ID: 4</div>
-                            <div class = "empDetails">Email: <br> <a href="mailto:Garrett_Winter@hotmail.com" target="_blank">Garrett_Winter@hotmail.com</a></div>
-                            <div class = "empDetails">School: U of M</div>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="empCard">
-                    <div class="name-role">
-                        Garrett Winter <br> 🎓 Intern
-                        <!-- ☕ 🎓 👓 -->
-                    </div>
-                    <div class="empCardBody">
-                        <div class="empCardContent">
-                            <div class = "empDetails">ID: 5</div>
-                            <div class = "empDetails">Email: <br> <a href="mailto:Garrett_Winter@hotmail.com" target="_blank">Garrett_Winter@hotmail.com</a></div>
-                            <div class = "empDetails">School: U of M</div>
-                        </div>
-                    </div>
-                </div>
-    
+            <div id="orgBox">${managerHTML}${engineerHTML}${internHTML}
             </div>
         </main>
         <footer>Garrett Winter © Copyright 2023, with no rights reserved</footer>
     </body>
     
     </html>`
+    generateCSS();
 };
 
 module.exports = cardGenerator, generateHTML;
